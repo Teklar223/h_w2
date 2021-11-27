@@ -1,26 +1,19 @@
 .PHONY: clean al
 
-all: loops loopd recursives recursived mains maindloop maindrec
+all: main
 
-loops: libclassloops.a
-loopd: libclassloops.so
-recursives: libclassrec.a
-recursived: libclassrec.so
-
-mains: main.o libclassrec.a
+main: main.o my_mat.so
 	gcc -Wall -g -o mains main.o libclassrec.a -lm
 
+#my_mat.a: my_mat.o
+#	ar -rcs my_mat.a my_mat.o
 
-libclassloops.a: advancedClassificationLoop.o basicClassification.o
-	ar -rcs libclassloops.a advancedClassificationLoop.o basicClassification.o
+my_mat.so: my_mat.o
+	gcc -shared -o lmy_mat.so my_mat.o
 
 
-libclassloops.so: advancedClassificationLoop.o basicClassification.o
-	gcc -shared -o libclassloops.so advancedClassificationLoop.o basicClassification.o
-
-advancedClassificationLoop.o: advancedClassificationLoop.c NumClass.h
-	gcc -Wall -g -c advancedClassificationLoop.c -lm
-
+my_mat.o: my_mat.c my_mat.h
+	gcc -Wall -g -c my_mat.c -lm
 
 
 basicClassification.o: basicClassification.c NumClass.h
