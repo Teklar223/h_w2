@@ -45,7 +45,7 @@ void floydAlgorithm(){
     }
 }
 
-void exists(int s, int e){
+int exists(int s, int e){
     if (mat[s][e]!=0){
         return true;
     }
@@ -55,7 +55,7 @@ void exists(int s, int e){
 }
 
 void shortest(int s, int e){
-    if (exists(s,e) == true)
+    if (exists(s,e) == true){
         printf("%d",mat[s][e]);
     }
     else{

@@ -18,7 +18,7 @@ int main(void){
             scanf("%d",&s);
             scanf("%d",&e);
             exist = exists(s,e); //calls a void function that prints True or False.
-            if (exist == trye){
+            if (exist == true){
                 printf("True\n");
             }
             else
