@@ -1,21 +1,27 @@
-.PHONY: clean al
+#VARIABLES:
+CC=gcc
+AR=ar
+OBJECTS_mat = my_mat.o 
+OBJECTS_Main = main.o
+FLAGS= -Wall -g
 
-all: connections
+all: connections 
 
-connections: main.o libmy_mat.a
-	gcc -Wall -g -o connections main.o my_mat.a -lm
 
-libmy_mat.a: my_mat.o
-	ar -rcs libmy_mat.a my_mat.o
+connections: $(OBJECTS_Main) libmy_mata.a
+	$(CC) $(FLAGS) -o connections $(OBJECTS_Main) libmy_mata.a
 
-#mm.so: my_mat.o
-#	gcc -shared -o mm.so my_mat.o
+libmy_mata.a: $(OBJECTS_mat) 
+	$(AR) -rcs libmy_mata.a $(OBJECTS_mat)
 
 my_mat.o: my_mat.c my_mat.h
-	gcc -Wall -g -c my_mat.c -lm
+	$(CC) $(FLAGS) -c my_mat.c
+
 
 main.o: main.c my_mat.h
-	gcc -Wall -g -c main.c
+	$(CC) $(FLAGS) -c main.c 
+
+.PHONY: clean all
 
 clean:
-	rm -f *.o *.a *.so connections
+	rm -f *.o *.so connections libmy_mata.a
