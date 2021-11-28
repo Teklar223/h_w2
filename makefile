@@ -9,7 +9,7 @@ main: main.o my_mat.so
 #	ar -rcs my_mat.a my_mat.o
 
 my_mat.so: my_mat.o
-	gcc -shared -o lmy_mat.so my_mat.o
+	gcc -shared -o my_mat.so my_mat.o
 
 
 my_mat.o: my_mat.c my_mat.h
