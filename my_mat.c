@@ -32,8 +32,13 @@ void floydAlgorithm(){
     for(int k=0; k<n; k++){
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
-                if (mat[i][j] > mat[i][k] + mat[k][j]){
-                     mat[i][j] = mat[i][k] + mat[k][j];
+                if (mat[i][k] != 0 && mat[k][j] != 0 && mat[i][j] != 0)
+                {
+                    mat[i][j] = min(mat[i][j], mat[i][k] + mat[k][j]);
+                }
+                if (i != j && mat[i][j] == 0 && mat[k][j] != 0 && mat[i][k] != 0)
+                {
+                    mat[i][j] = mat[i][k] + mat[k][j];
                 }
             }
         }
@@ -42,18 +47,18 @@ void floydAlgorithm(){
 
 void exists(int s, int e){
     if (mat[s][e]!=0){
-        printf("True\n");
+        return true;
     }
     else {
-        printf("False\n");
+        return false;
     }
 }
 
 void shortest(int s, int e){
-    if (mat[s][e]!=0){
-        printf("%d\n",mat[s][e]);
+    if (exists(s,e) == true)
+        printf("%d",mat[s][e]);
     }
     else{
-        printf("-1\n");
+        printf("-1");
     }
 }

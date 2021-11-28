@@ -8,18 +8,29 @@ int main(void){
     char x;
     int s;
     int e;
+    int exist = 0;
     while(x!='D'){
         scanf("%c",&x);
         if (x=='A'){
             init(); //calls a void function that initializes a matrix and then applies the floyd-warshall algorithm to it.
         }
         if (x=='B'){
-            scanf("%d%d",&s,&e);
-            exists(s,e); //calls a void function that prints True or False.
+            scanf("%d",&s);
+            scanf("%d",&e);
+            exist = exists(s,e); //calls a void function that prints True or False.
+            if (exist == trye){
+                printf("True\n");
+            }
+            else
+            {
+                printf("False\n");
+            }
         }
         if (x=='C'){
-            scanf("%d%d",&s,&e);
+            scanf("%d",&s);
+            scanf("%d",&e);
             shortest(s,e);
+            printf("\n");
         }
     }
 }
