@@ -1,8 +1,8 @@
 .PHONY: clean al
 
-all: main
+all: connections
 
-main: main.o my_mat.a
+connections: main.o my_mat.a
 	gcc -Wall -g -o main main.o my_mat.a -lm
 
 my_mat.a: my_mat.o
