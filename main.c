@@ -4,7 +4,7 @@
 #define true 1
 #define false 0
 
-int main(void){
+int main(){
     char x;
     int s;
     int e;
