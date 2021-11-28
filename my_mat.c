@@ -50,7 +50,7 @@ void exists(int s, int e){
 }
 
 void shortest(int s, int e){
-    if(exists(s,e)==true){
+    if (mat[s][e]!=0){
         printf("%d\n",mat[s][e]);
     }
     else{
